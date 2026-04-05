@@ -14,13 +14,13 @@ const PALETTE: [number, number, number][] = [
 const LABELS = ["BFS", "DFS", "A*", "UCS", "IDDFS", "Greedy", "Hill Climb", "Genetic"];
 
 // ── Configuration ──────────────────────────────────────────────────────
-const POOL_SIZE = 140;
-const MAX_PARTICLES = 120;
+const POOL_SIZE = 200;
+const MAX_PARTICLES = 170;
 const AMBIENT_TARGET = 0;
-const SPAWN_THROTTLE = 15;        // ms between spawns (faster for denser cluster)
+const SPAWN_THROTTLE = 10;        // ms between spawns (faster for denser cluster)
 const EDGE_DIST = 120;
 const EDGE_DIST_SQ = EDGE_DIST * EDGE_DIST;
-const MAX_EDGES = 50;
+const MAX_EDGES = 70;
 const REPEL_R = 120;
 const REPEL_R_SQ = REPEL_R * REPEL_R;
 const ATTRACT_R = 500;
@@ -135,7 +135,7 @@ export default function AntiGravityCanvas() {
         p.vy = bvy ?? (Math.random() - 0.5) * 1.5;
         p.col = (Math.random() * PALETTE.length) | 0;
         p.layer = (Math.random() * 3) | 0;
-        p.maxLife = 2 + Math.random() * 2; // shorter life
+        p.maxLife = 2.5 + Math.random() * 2.5; // slightly longer life for denser trails
         p.life = p.maxLife;
         if (rng < 0.10) { p.kind = K_LABEL; p.txt = (Math.random() * LABELS.length) | 0; p.r = 0; }
         else if (rng < 0.38) { p.kind = K_BINARY; p.txt = Math.random() < 0.5 ? 0 : 1; p.r = 0; }
@@ -325,7 +325,7 @@ export default function AntiGravityCanvas() {
       const now = performance.now();
       if (now - S.lastSpawn < SPAWN_THROTTLE) return;
       S.lastSpawn = now;
-      const ct = Math.ceil(2 + S.speed * 1.5);
+      const ct = Math.ceil(3 + S.speed * 2);
       for (let i = 0; i < ct; i++) spawn(e.clientX, e.clientY, S.speed, false);
     };
 
@@ -337,8 +337,8 @@ export default function AntiGravityCanvas() {
         rips[i].col = (Math.random() * PALETTE.length) | 0;
         break;
       }
-      for (let i = 0; i < 10; i++) {
-        const ang = (i / 10) * 6.2832;
+      for (let i = 0; i < 14; i++) {
+        const ang = (i / 14) * 6.2832;
         const spd = 2 + Math.random() * 2;
         spawn(e.clientX, e.clientY, 2, false, Math.cos(ang) * spd, Math.sin(ang) * spd);
       }
