@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Sparkles, Zap, BarChart3, Layers, Cpu, GitBranch, Play, Compass } from "lucide-react";
+import { ArrowRight, Sparkles, Zap, BarChart3, Layers, Cpu, GitBranch, Play, Compass, Github } from "lucide-react";
 import dynamic from "next/dynamic";
 
 const AntiGravityCanvas = dynamic(() => import("@/components/AntiGravityCanvas"), { ssr: false });
@@ -210,9 +210,21 @@ export default function Home() {
             <CTAButton href="/visualizer" variant="primary">
               <Play className="w-4 h-4" /> Start Visualization <ArrowRight className="w-4 h-4 cta-arrow" />
             </CTAButton>
-            <CTAButton href="#algorithms" variant="secondary">
-              <Compass className="w-4 h-4" /> Explore Algorithms
-            </CTAButton>
+            <span className="cta-float">
+              <button
+                onClick={(e) => { e.preventDefault(); document.getElementById('algorithms')?.scrollIntoView({ behavior: 'smooth' }); }}
+                className="cta-btn cta-secondary"
+                style={{
+                  display: "inline-flex", alignItems: "center", gap: 10,
+                  padding: "16px 32px", borderRadius: 16, fontWeight: 600, fontSize: 14,
+                  cursor: "pointer", background: "rgba(255,255,255,0.03)",
+                  color: "rgba(203,213,225,0.9)", border: "1px solid rgba(255,255,255,0.07)",
+                  backdropFilter: "blur(16px)",
+                }}
+              >
+                <Compass className="w-4 h-4" /> Explore Algorithms
+              </button>
+            </span>
           </motion.div>
 
           {/* Algorithm tags — inline centered */}
@@ -282,11 +294,16 @@ export default function Home() {
       </section>
 
       {/* ─── Footer ────────────────────────────────────────────────── */}
-      <footer className="py-6 px-4 bg-black" style={{ borderTop: "1px solid rgba(255,255,255,0.03)" }}>
+      <footer className="py-6 px-4 bg-black relative" style={{ borderTop: "1px solid rgba(255,255,255,0.03)" }}>
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-[11px]" style={{ color: "rgba(100,116,139,0.4)" }}>AlgoPath © 2026 · AI-Based Pathfinding & Search Algorithm Visualizer</p>
           <p className="text-[10px] mt-1" style={{ color: "rgba(100,116,139,0.25)" }}>Built for Introduction to Artificial Intelligence</p>
         </div>
+        <a href="https://github.com/sagnik47" target="_blank" rel="noopener noreferrer"
+          className="absolute bottom-5 right-6 text-slate-600 hover:text-slate-300 transition-colors duration-300"
+          aria-label="GitHub Profile">
+          <Github className="w-5 h-5" />
+        </a>
       </footer>
     </div>
   );
