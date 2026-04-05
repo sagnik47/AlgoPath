@@ -302,7 +302,7 @@ export default function Home() {
         <a href="https://github.com/sagnik47" target="_blank" rel="noopener noreferrer"
           className="absolute bottom-5 right-6 text-slate-600 hover:text-slate-300 transition-colors duration-300"
           aria-label="GitHub Profile">
-          <Github className="w-5 h-5" />
+          <Github className="w-6 h-6" />
         </a>
       </footer>
     </div>
