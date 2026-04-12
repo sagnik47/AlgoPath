@@ -1,4 +1,4 @@
-# AlgoPath — AI-Based Pathfinding & Search Algorithm Visualizer (algopath](https://algopath-beta.vercel.app/)
+# AlgoPath — AI-Based Pathfinding & Search Algorithm Visualizer (https://algopath-beta.vercel.app/)
 
 > **Course:** Introduction to Artificial Intelligence
 
