@@ -1,4 +1,4 @@
-# AlgoPath — AI-Based Pathfinding & Search Algorithm Visualizer
+# AlgoPath — AI-Based Pathfinding & Search Algorithm Visualizer (algopath](https://algopath-beta.vercel.app/)
 
 > **Course:** Introduction to Artificial Intelligence
 
@@ -108,8 +108,6 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-The backend will be available at **http://localhost:8000**
-
 API docs: **http://localhost:8000/docs** (Swagger UI)
 
 ### 2. Frontend (Next.js)
@@ -123,8 +121,6 @@ npm install
 # Start dev server
 npm run dev
 ```
-
-The frontend will be available at **http://localhost:3000**
 
 ---
 
