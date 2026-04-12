@@ -107,9 +107,6 @@ pip install -r requirements.txt
 # Start the server
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
-
-API docs: **http://localhost:8000/docs** (Swagger UI)
-
 ### 2. Frontend (Next.js)
 
 ```bash
